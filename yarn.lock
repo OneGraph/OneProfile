@@ -1598,7 +1598,7 @@ once@^1.3.0, once@^1.3.3:
   dependencies:
     wrappy "1"
 
-onegraph-auth@0.1.27:
+onegraph-auth@^0.1.27:
   version "0.1.27"
   resolved "https://registry.yarnpkg.com/onegraph-auth/-/onegraph-auth-0.1.27.tgz#5d7b9d71657706bbbfff1efcf440d20f010cf37c"
   dependencies:

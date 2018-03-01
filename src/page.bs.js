@@ -18,12 +18,14 @@ var component = ReasonReact.reducerComponent("Page");
 function make(forcedVideoId, _) {
   var newrecord = component.slice();
   newrecord[/* didMount */4] = (function (self) {
-      var match = self[/* state */2][/* videoId */2];
-      if (!match) {
+      try {
         Chrome$ReactTemplate.Tabs[/* getActive */0]((function (activeTab) {
                 console.log("Active tab:", activeTab);
                 return Curry._1(self[/* send */4], /* SetUrl */Block.__(1, [Js_primitive.null_undefined_to_opt(activeTab.url)]));
               }));
+      }
+      catch (exn){
+        Curry._1(self[/* send */4], /* SetUrl */Block.__(1, [forcedVideoId]));
       }
       self[/* state */2][/* twitterAuth */1].isLoggedIn().then((function (isLoggedIn) {
               console.log("User is logged in to twitter: ", isLoggedIn);
@@ -88,7 +90,7 @@ function make(forcedVideoId, _) {
                     appId: Config$ReactTemplate.appId,
                     oauthFinishPath: "/src/popup.html"
                   }),
-              /* videoId */forcedVideoId,
+              /* videoId : None */0,
               /* currentUrl : None */0,
               /* failed : false */0,
               /* isGithubLoggedIn : false */0,

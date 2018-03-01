@@ -48,463 +48,421 @@ function parse(value) {
           var tmp$3;
           if (match$4) {
             var value$3 = match$4[0]["user"];
-            var match$5 = Js_json.decodeNull(value$3);
+            var match$5 = Js_json.decodeObject(value$3);
             var tmp$4;
             if (match$5) {
-              tmp$4 = /* None */0;
-            } else {
-              var match$6 = Js_json.decodeObject(value$3);
+              var value$4 = match$5[0];
+              var value$5 = value$4["name"];
+              var match$6 = Js_json.decodeNull(value$5);
               var tmp$5;
               if (match$6) {
-                var value$4 = match$6[0];
-                var value$5 = value$4["name"];
-                var match$7 = Js_json.decodeNull(value$5);
+                tmp$5 = /* None */0;
+              } else {
+                var match$7 = Js_json.decodeString(value$5);
                 var tmp$6;
                 if (match$7) {
-                  tmp$6 = /* None */0;
+                  tmp$6 = match$7[0];
                 } else {
-                  var match$8 = Js_json.decodeString(value$5);
-                  var tmp$7;
-                  if (match$8) {
-                    tmp$7 = match$8[0];
+                  throw Graphql_error;
+                }
+                tmp$5 = /* Some */[tmp$6];
+              }
+              var value$6 = value$4["presentations"];
+              var match$8 = Js_json.decodeArray(value$6);
+              var tmp$7;
+              if (match$8) {
+                tmp$7 = match$8[0].map((function (value) {
+                        var match = Js_json.decodeObject(value);
+                        if (match) {
+                          var value$1 = match[0];
+                          var value$2 = value$1["event"];
+                          var match$1 = Js_json.decodeObject(value$2);
+                          var tmp;
+                          if (match$1) {
+                            var value$3 = match$1[0]["name"];
+                            var match$2 = Js_json.decodeNull(value$3);
+                            var tmp$1;
+                            if (match$2) {
+                              tmp$1 = /* None */0;
+                            } else {
+                              var match$3 = Js_json.decodeString(value$3);
+                              var tmp$2;
+                              if (match$3) {
+                                tmp$2 = match$3[0];
+                              } else {
+                                throw Graphql_error;
+                              }
+                              tmp$1 = /* Some */[tmp$2];
+                            }
+                            tmp = {
+                              name: tmp$1
+                            };
+                          } else {
+                            throw Graphql_error;
+                          }
+                          var value$4 = value$1["draft"];
+                          var match$4 = Js_json.decodeObject(value$4);
+                          var tmp$3;
+                          if (match$4) {
+                            var value$5 = match$4[0]["title"];
+                            var match$5 = Js_json.decodeNull(value$5);
+                            var tmp$4;
+                            if (match$5) {
+                              tmp$4 = /* None */0;
+                            } else {
+                              var match$6 = Js_json.decodeString(value$5);
+                              var tmp$5;
+                              if (match$6) {
+                                tmp$5 = match$6[0];
+                              } else {
+                                throw Graphql_error;
+                              }
+                              tmp$4 = /* Some */[tmp$5];
+                            }
+                            tmp$3 = {
+                              title: tmp$4
+                            };
+                          } else {
+                            throw Graphql_error;
+                          }
+                          var value$6 = value$1["video_url"];
+                          var match$7 = Js_json.decodeNull(value$6);
+                          var tmp$6;
+                          if (match$7) {
+                            tmp$6 = /* None */0;
+                          } else {
+                            var match$8 = Js_json.decodeString(value$6);
+                            var tmp$7;
+                            if (match$8) {
+                              tmp$7 = match$8[0];
+                            } else {
+                              throw Graphql_error;
+                            }
+                            tmp$6 = /* Some */[tmp$7];
+                          }
+                          var value$7 = value$1["youtubeVideo"];
+                          var match$9 = Js_json.decodeNull(value$7);
+                          var tmp$8;
+                          if (match$9) {
+                            tmp$8 = /* None */0;
+                          } else {
+                            var match$10 = Js_json.decodeObject(value$7);
+                            var tmp$9;
+                            if (match$10) {
+                              var value$8 = match$10[0]["statistics"];
+                              var match$11 = Js_json.decodeNull(value$8);
+                              var tmp$10;
+                              if (match$11) {
+                                tmp$10 = /* None */0;
+                              } else {
+                                var match$12 = Js_json.decodeObject(value$8);
+                                var tmp$11;
+                                if (match$12) {
+                                  var value$9 = match$12[0];
+                                  var value$10 = value$9["viewCount"];
+                                  var match$13 = Js_json.decodeNumber(value$10);
+                                  var tmp$12;
+                                  if (match$13) {
+                                    tmp$12 = match$13[0] | 0;
+                                  } else {
+                                    throw Graphql_error;
+                                  }
+                                  var value$11 = value$9["likeCount"];
+                                  var match$14 = Js_json.decodeNumber(value$11);
+                                  var tmp$13;
+                                  if (match$14) {
+                                    tmp$13 = match$14[0] | 0;
+                                  } else {
+                                    throw Graphql_error;
+                                  }
+                                  tmp$11 = {
+                                    viewCount: tmp$12,
+                                    likeCount: tmp$13
+                                  };
+                                } else {
+                                  throw Graphql_error;
+                                }
+                                tmp$10 = /* Some */[tmp$11];
+                              }
+                              tmp$9 = {
+                                statistics: tmp$10
+                              };
+                            } else {
+                              throw Graphql_error;
+                            }
+                            tmp$8 = /* Some */[tmp$9];
+                          }
+                          return {
+                                  event: tmp,
+                                  draft: tmp$3,
+                                  video_url: tmp$6,
+                                  youtubeVideo: tmp$8
+                                };
+                        } else {
+                          throw Graphql_error;
+                        }
+                      }));
+              } else {
+                throw Graphql_error;
+              }
+              var value$7 = value$4["profile"];
+              var match$9 = Js_json.decodeObject(value$7);
+              var tmp$8;
+              if (match$9) {
+                var value$8 = match$9[0];
+                var value$9 = value$8["twitter"];
+                var match$10 = Js_json.decodeNull(value$9);
+                var tmp$9;
+                if (match$10) {
+                  tmp$9 = /* None */0;
+                } else {
+                  var match$11 = Js_json.decodeString(value$9);
+                  var tmp$10;
+                  if (match$11) {
+                    tmp$10 = match$11[0];
                   } else {
                     throw Graphql_error;
                   }
-                  tmp$6 = /* Some */[tmp$7];
+                  tmp$9 = /* Some */[tmp$10];
                 }
-                var value$6 = value$4["presentations"];
-                var match$9 = Js_json.decodeNull(value$6);
-                var tmp$8;
-                if (match$9) {
-                  tmp$8 = /* None */0;
+                var value$10 = value$8["twitterTimeline"];
+                var match$12 = Js_json.decodeNull(value$10);
+                var tmp$11;
+                if (match$12) {
+                  tmp$11 = /* None */0;
                 } else {
-                  var match$10 = Js_json.decodeArray(value$6);
-                  var tmp$9;
-                  if (match$10) {
-                    tmp$9 = match$10[0].map((function (value) {
-                            var match = Js_json.decodeNull(value);
-                            if (match) {
-                              return /* None */0;
-                            } else {
-                              var match$1 = Js_json.decodeObject(value);
-                              var tmp;
-                              if (match$1) {
-                                var value$1 = match$1[0];
-                                var value$2 = value$1["event"];
-                                var match$2 = Js_json.decodeNull(value$2);
+                  var match$13 = Js_json.decodeObject(value$10);
+                  var tmp$12;
+                  if (match$13) {
+                    var value$11 = match$13[0]["tweets"];
+                    var match$14 = Js_json.decodeArray(value$11);
+                    var tmp$13;
+                    if (match$14) {
+                      tmp$13 = match$14[0].map((function (value) {
+                              var match = Js_json.decodeObject(value);
+                              if (match) {
+                                var value$1 = match[0];
+                                var value$2 = value$1["idStr"];
+                                var match$1 = Js_json.decodeString(value$2);
+                                var tmp;
+                                if (match$1) {
+                                  tmp = match$1[0];
+                                } else {
+                                  throw Graphql_error;
+                                }
+                                var value$3 = value$1["createdAt"];
+                                var match$2 = Js_json.decodeString(value$3);
                                 var tmp$1;
                                 if (match$2) {
-                                  tmp$1 = /* None */0;
+                                  tmp$1 = match$2[0];
                                 } else {
-                                  var match$3 = Js_json.decodeObject(value$2);
-                                  var tmp$2;
-                                  if (match$3) {
-                                    var value$3 = match$3[0]["name"];
-                                    var match$4 = Js_json.decodeNull(value$3);
-                                    var tmp$3;
-                                    if (match$4) {
-                                      tmp$3 = /* None */0;
-                                    } else {
-                                      var match$5 = Js_json.decodeString(value$3);
+                                  throw Graphql_error;
+                                }
+                                var value$4 = value$1["text"];
+                                var match$3 = Js_json.decodeString(value$4);
+                                var tmp$2;
+                                if (match$3) {
+                                  tmp$2 = match$3[0];
+                                } else {
+                                  throw Graphql_error;
+                                }
+                                return {
+                                        idStr: tmp,
+                                        createdAt: tmp$1,
+                                        text: tmp$2
+                                      };
+                              } else {
+                                throw Graphql_error;
+                              }
+                            }));
+                    } else {
+                      throw Graphql_error;
+                    }
+                    tmp$12 = {
+                      tweets: tmp$13
+                    };
+                  } else {
+                    throw Graphql_error;
+                  }
+                  tmp$11 = /* Some */[tmp$12];
+                }
+                var value$12 = value$8["github"];
+                var match$15 = Js_json.decodeNull(value$12);
+                var tmp$14;
+                if (match$15) {
+                  tmp$14 = /* None */0;
+                } else {
+                  var match$16 = Js_json.decodeString(value$12);
+                  var tmp$15;
+                  if (match$16) {
+                    tmp$15 = match$16[0];
+                  } else {
+                    throw Graphql_error;
+                  }
+                  tmp$14 = /* Some */[tmp$15];
+                }
+                var value$13 = value$8["gitHubUser"];
+                var match$17 = Js_json.decodeNull(value$13);
+                var tmp$16;
+                if (match$17) {
+                  tmp$16 = /* None */0;
+                } else {
+                  var match$18 = Js_json.decodeObject(value$13);
+                  var tmp$17;
+                  if (match$18) {
+                    var value$14 = match$18[0];
+                    var value$15 = value$14["login"];
+                    var match$19 = Js_json.decodeString(value$15);
+                    var tmp$18;
+                    if (match$19) {
+                      tmp$18 = match$19[0];
+                    } else {
+                      throw Graphql_error;
+                    }
+                    var value$16 = value$14["email"];
+                    var match$20 = Js_json.decodeString(value$16);
+                    var tmp$19;
+                    if (match$20) {
+                      tmp$19 = match$20[0];
+                    } else {
+                      throw Graphql_error;
+                    }
+                    var value$17 = value$14["websiteUrl"];
+                    var match$21 = Js_json.decodeNull(value$17);
+                    var tmp$20;
+                    if (match$21) {
+                      tmp$20 = /* None */0;
+                    } else {
+                      var match$22 = Js_json.decodeString(value$17);
+                      var tmp$21;
+                      if (match$22) {
+                        tmp$21 = match$22[0];
+                      } else {
+                        throw Graphql_error;
+                      }
+                      tmp$20 = /* Some */[tmp$21];
+                    }
+                    var value$18 = value$14["followers"];
+                    var match$23 = Js_json.decodeObject(value$18);
+                    var tmp$22;
+                    if (match$23) {
+                      var value$19 = match$23[0]["totalCount"];
+                      var match$24 = Js_json.decodeNumber(value$19);
+                      var tmp$23;
+                      if (match$24) {
+                        tmp$23 = match$24[0] | 0;
+                      } else {
+                        throw Graphql_error;
+                      }
+                      tmp$22 = {
+                        totalCount: tmp$23
+                      };
+                    } else {
+                      throw Graphql_error;
+                    }
+                    var value$20 = value$14["repositories"];
+                    var match$25 = Js_json.decodeObject(value$20);
+                    var tmp$24;
+                    if (match$25) {
+                      var value$21 = match$25[0]["nodes"];
+                      var match$26 = Js_json.decodeNull(value$21);
+                      var tmp$25;
+                      if (match$26) {
+                        tmp$25 = /* None */0;
+                      } else {
+                        var match$27 = Js_json.decodeArray(value$21);
+                        var tmp$26;
+                        if (match$27) {
+                          tmp$26 = match$27[0].map((function (value) {
+                                  var match = Js_json.decodeNull(value);
+                                  if (match) {
+                                    return /* None */0;
+                                  } else {
+                                    var match$1 = Js_json.decodeObject(value);
+                                    var tmp;
+                                    if (match$1) {
+                                      var value$1 = match$1[0];
+                                      var value$2 = value$1["description"];
+                                      var match$2 = Js_json.decodeNull(value$2);
+                                      var tmp$1;
+                                      if (match$2) {
+                                        tmp$1 = /* None */0;
+                                      } else {
+                                        var match$3 = Js_json.decodeString(value$2);
+                                        var tmp$2;
+                                        if (match$3) {
+                                          tmp$2 = match$3[0];
+                                        } else {
+                                          throw Graphql_error;
+                                        }
+                                        tmp$1 = /* Some */[tmp$2];
+                                      }
+                                      var value$3 = value$1["name"];
+                                      var match$4 = Js_json.decodeString(value$3);
+                                      var tmp$3;
+                                      if (match$4) {
+                                        tmp$3 = match$4[0];
+                                      } else {
+                                        throw Graphql_error;
+                                      }
+                                      var value$4 = value$1["url"];
+                                      var match$5 = Js_json.decodeString(value$4);
                                       var tmp$4;
                                       if (match$5) {
                                         tmp$4 = match$5[0];
                                       } else {
                                         throw Graphql_error;
                                       }
-                                      tmp$3 = /* Some */[tmp$4];
-                                    }
-                                    tmp$2 = {
-                                      name: tmp$3
-                                    };
-                                  } else {
-                                    throw Graphql_error;
-                                  }
-                                  tmp$1 = /* Some */[tmp$2];
-                                }
-                                var value$4 = value$1["draft"];
-                                var match$6 = Js_json.decodeNull(value$4);
-                                var tmp$5;
-                                if (match$6) {
-                                  tmp$5 = /* None */0;
-                                } else {
-                                  var match$7 = Js_json.decodeObject(value$4);
-                                  var tmp$6;
-                                  if (match$7) {
-                                    var value$5 = match$7[0]["title"];
-                                    var match$8 = Js_json.decodeNull(value$5);
-                                    var tmp$7;
-                                    if (match$8) {
-                                      tmp$7 = /* None */0;
-                                    } else {
-                                      var match$9 = Js_json.decodeString(value$5);
-                                      var tmp$8;
-                                      if (match$9) {
-                                        tmp$8 = match$9[0];
-                                      } else {
-                                        throw Graphql_error;
-                                      }
-                                      tmp$7 = /* Some */[tmp$8];
-                                    }
-                                    tmp$6 = {
-                                      title: tmp$7
-                                    };
-                                  } else {
-                                    throw Graphql_error;
-                                  }
-                                  tmp$5 = /* Some */[tmp$6];
-                                }
-                                var value$6 = value$1["video_url"];
-                                var match$10 = Js_json.decodeNull(value$6);
-                                var tmp$9;
-                                if (match$10) {
-                                  tmp$9 = /* None */0;
-                                } else {
-                                  var match$11 = Js_json.decodeString(value$6);
-                                  var tmp$10;
-                                  if (match$11) {
-                                    tmp$10 = match$11[0];
-                                  } else {
-                                    throw Graphql_error;
-                                  }
-                                  tmp$9 = /* Some */[tmp$10];
-                                }
-                                var value$7 = value$1["youtubeVideo"];
-                                var match$12 = Js_json.decodeNull(value$7);
-                                var tmp$11;
-                                if (match$12) {
-                                  tmp$11 = /* None */0;
-                                } else {
-                                  var match$13 = Js_json.decodeObject(value$7);
-                                  var tmp$12;
-                                  if (match$13) {
-                                    var value$8 = match$13[0]["statistics"];
-                                    var match$14 = Js_json.decodeNull(value$8);
-                                    var tmp$13;
-                                    if (match$14) {
-                                      tmp$13 = /* None */0;
-                                    } else {
-                                      var match$15 = Js_json.decodeObject(value$8);
-                                      var tmp$14;
-                                      if (match$15) {
-                                        var value$9 = match$15[0];
-                                        var value$10 = value$9["viewCount"];
-                                        var match$16 = Js_json.decodeNumber(value$10);
-                                        var tmp$15;
-                                        if (match$16) {
-                                          tmp$15 = match$16[0] | 0;
-                                        } else {
-                                          throw Graphql_error;
-                                        }
-                                        var value$11 = value$9["likeCount"];
-                                        var match$17 = Js_json.decodeNumber(value$11);
-                                        var tmp$16;
-                                        if (match$17) {
-                                          tmp$16 = match$17[0] | 0;
-                                        } else {
-                                          throw Graphql_error;
-                                        }
-                                        tmp$14 = {
-                                          viewCount: tmp$15,
-                                          likeCount: tmp$16
-                                        };
-                                      } else {
-                                        throw Graphql_error;
-                                      }
-                                      tmp$13 = /* Some */[tmp$14];
-                                    }
-                                    tmp$12 = {
-                                      statistics: tmp$13
-                                    };
-                                  } else {
-                                    throw Graphql_error;
-                                  }
-                                  tmp$11 = /* Some */[tmp$12];
-                                }
-                                tmp = {
-                                  event: tmp$1,
-                                  draft: tmp$5,
-                                  video_url: tmp$9,
-                                  youtubeVideo: tmp$11
-                                };
-                              } else {
-                                throw Graphql_error;
-                              }
-                              return /* Some */[tmp];
-                            }
-                          }));
-                  } else {
-                    throw Graphql_error;
-                  }
-                  tmp$8 = /* Some */[tmp$9];
-                }
-                var value$7 = value$4["profile"];
-                var match$11 = Js_json.decodeNull(value$7);
-                var tmp$10;
-                if (match$11) {
-                  tmp$10 = /* None */0;
-                } else {
-                  var match$12 = Js_json.decodeObject(value$7);
-                  var tmp$11;
-                  if (match$12) {
-                    var value$8 = match$12[0];
-                    var value$9 = value$8["twitter"];
-                    var match$13 = Js_json.decodeNull(value$9);
-                    var tmp$12;
-                    if (match$13) {
-                      tmp$12 = /* None */0;
-                    } else {
-                      var match$14 = Js_json.decodeString(value$9);
-                      var tmp$13;
-                      if (match$14) {
-                        tmp$13 = match$14[0];
-                      } else {
-                        throw Graphql_error;
-                      }
-                      tmp$12 = /* Some */[tmp$13];
-                    }
-                    var value$10 = value$8["twitterTimeline"];
-                    var match$15 = Js_json.decodeNull(value$10);
-                    var tmp$14;
-                    if (match$15) {
-                      tmp$14 = /* None */0;
-                    } else {
-                      var match$16 = Js_json.decodeObject(value$10);
-                      var tmp$15;
-                      if (match$16) {
-                        var value$11 = match$16[0]["tweets"];
-                        var match$17 = Js_json.decodeArray(value$11);
-                        var tmp$16;
-                        if (match$17) {
-                          tmp$16 = match$17[0].map((function (value) {
-                                  var match = Js_json.decodeObject(value);
-                                  if (match) {
-                                    var value$1 = match[0];
-                                    var value$2 = value$1["idStr"];
-                                    var match$1 = Js_json.decodeString(value$2);
-                                    var tmp;
-                                    if (match$1) {
-                                      tmp = match$1[0];
+                                      tmp = {
+                                        description: tmp$1,
+                                        name: tmp$3,
+                                        url: tmp$4
+                                      };
                                     } else {
                                       throw Graphql_error;
                                     }
-                                    var value$3 = value$1["createdAt"];
-                                    var match$2 = Js_json.decodeString(value$3);
-                                    var tmp$1;
-                                    if (match$2) {
-                                      tmp$1 = match$2[0];
-                                    } else {
-                                      throw Graphql_error;
-                                    }
-                                    var value$4 = value$1["text"];
-                                    var match$3 = Js_json.decodeString(value$4);
-                                    var tmp$2;
-                                    if (match$3) {
-                                      tmp$2 = match$3[0];
-                                    } else {
-                                      throw Graphql_error;
-                                    }
-                                    return {
-                                            idStr: tmp,
-                                            createdAt: tmp$1,
-                                            text: tmp$2
-                                          };
-                                  } else {
-                                    throw Graphql_error;
+                                    return /* Some */[tmp];
                                   }
                                 }));
                         } else {
                           throw Graphql_error;
                         }
-                        tmp$15 = {
-                          tweets: tmp$16
-                        };
-                      } else {
-                        throw Graphql_error;
+                        tmp$25 = /* Some */[tmp$26];
                       }
-                      tmp$14 = /* Some */[tmp$15];
-                    }
-                    var value$12 = value$8["github"];
-                    var match$18 = Js_json.decodeNull(value$12);
-                    var tmp$17;
-                    if (match$18) {
-                      tmp$17 = /* None */0;
+                      tmp$24 = {
+                        nodes: tmp$25
+                      };
                     } else {
-                      var match$19 = Js_json.decodeString(value$12);
-                      var tmp$18;
-                      if (match$19) {
-                        tmp$18 = match$19[0];
-                      } else {
-                        throw Graphql_error;
-                      }
-                      tmp$17 = /* Some */[tmp$18];
+                      throw Graphql_error;
                     }
-                    var value$13 = value$8["gitHubUser"];
-                    var match$20 = Js_json.decodeNull(value$13);
-                    var tmp$19;
-                    if (match$20) {
-                      tmp$19 = /* None */0;
-                    } else {
-                      var match$21 = Js_json.decodeObject(value$13);
-                      var tmp$20;
-                      if (match$21) {
-                        var value$14 = match$21[0];
-                        var value$15 = value$14["login"];
-                        var match$22 = Js_json.decodeString(value$15);
-                        var tmp$21;
-                        if (match$22) {
-                          tmp$21 = match$22[0];
-                        } else {
-                          throw Graphql_error;
-                        }
-                        var value$16 = value$14["email"];
-                        var match$23 = Js_json.decodeString(value$16);
-                        var tmp$22;
-                        if (match$23) {
-                          tmp$22 = match$23[0];
-                        } else {
-                          throw Graphql_error;
-                        }
-                        var value$17 = value$14["websiteUrl"];
-                        var match$24 = Js_json.decodeNull(value$17);
-                        var tmp$23;
-                        if (match$24) {
-                          tmp$23 = /* None */0;
-                        } else {
-                          var match$25 = Js_json.decodeString(value$17);
-                          var tmp$24;
-                          if (match$25) {
-                            tmp$24 = match$25[0];
-                          } else {
-                            throw Graphql_error;
-                          }
-                          tmp$23 = /* Some */[tmp$24];
-                        }
-                        var value$18 = value$14["followers"];
-                        var match$26 = Js_json.decodeObject(value$18);
-                        var tmp$25;
-                        if (match$26) {
-                          var value$19 = match$26[0]["totalCount"];
-                          var match$27 = Js_json.decodeNumber(value$19);
-                          var tmp$26;
-                          if (match$27) {
-                            tmp$26 = match$27[0] | 0;
-                          } else {
-                            throw Graphql_error;
-                          }
-                          tmp$25 = {
-                            totalCount: tmp$26
-                          };
-                        } else {
-                          throw Graphql_error;
-                        }
-                        var value$20 = value$14["repositories"];
-                        var match$28 = Js_json.decodeObject(value$20);
-                        var tmp$27;
-                        if (match$28) {
-                          var value$21 = match$28[0]["nodes"];
-                          var match$29 = Js_json.decodeNull(value$21);
-                          var tmp$28;
-                          if (match$29) {
-                            tmp$28 = /* None */0;
-                          } else {
-                            var match$30 = Js_json.decodeArray(value$21);
-                            var tmp$29;
-                            if (match$30) {
-                              tmp$29 = match$30[0].map((function (value) {
-                                      var match = Js_json.decodeNull(value);
-                                      if (match) {
-                                        return /* None */0;
-                                      } else {
-                                        var match$1 = Js_json.decodeObject(value);
-                                        var tmp;
-                                        if (match$1) {
-                                          var value$1 = match$1[0];
-                                          var value$2 = value$1["description"];
-                                          var match$2 = Js_json.decodeNull(value$2);
-                                          var tmp$1;
-                                          if (match$2) {
-                                            tmp$1 = /* None */0;
-                                          } else {
-                                            var match$3 = Js_json.decodeString(value$2);
-                                            var tmp$2;
-                                            if (match$3) {
-                                              tmp$2 = match$3[0];
-                                            } else {
-                                              throw Graphql_error;
-                                            }
-                                            tmp$1 = /* Some */[tmp$2];
-                                          }
-                                          var value$3 = value$1["name"];
-                                          var match$4 = Js_json.decodeString(value$3);
-                                          var tmp$3;
-                                          if (match$4) {
-                                            tmp$3 = match$4[0];
-                                          } else {
-                                            throw Graphql_error;
-                                          }
-                                          var value$4 = value$1["url"];
-                                          var match$5 = Js_json.decodeString(value$4);
-                                          var tmp$4;
-                                          if (match$5) {
-                                            tmp$4 = match$5[0];
-                                          } else {
-                                            throw Graphql_error;
-                                          }
-                                          tmp = {
-                                            description: tmp$1,
-                                            name: tmp$3,
-                                            url: tmp$4
-                                          };
-                                        } else {
-                                          throw Graphql_error;
-                                        }
-                                        return /* Some */[tmp];
-                                      }
-                                    }));
-                            } else {
-                              throw Graphql_error;
-                            }
-                            tmp$28 = /* Some */[tmp$29];
-                          }
-                          tmp$27 = {
-                            nodes: tmp$28
-                          };
-                        } else {
-                          throw Graphql_error;
-                        }
-                        tmp$20 = {
-                          login: tmp$21,
-                          email: tmp$22,
-                          websiteUrl: tmp$23,
-                          followers: tmp$25,
-                          repositories: tmp$27
-                        };
-                      } else {
-                        throw Graphql_error;
-                      }
-                      tmp$19 = /* Some */[tmp$20];
-                    }
-                    tmp$11 = {
-                      twitter: tmp$12,
-                      twitterTimeline: tmp$14,
-                      github: tmp$17,
-                      gitHubUser: tmp$19
+                    tmp$17 = {
+                      login: tmp$18,
+                      email: tmp$19,
+                      websiteUrl: tmp$20,
+                      followers: tmp$22,
+                      repositories: tmp$24
                     };
                   } else {
                     throw Graphql_error;
                   }
-                  tmp$10 = /* Some */[tmp$11];
+                  tmp$16 = /* Some */[tmp$17];
                 }
-                tmp$5 = {
-                  name: tmp$6,
-                  presentations: tmp$8,
-                  profile: tmp$10
+                tmp$8 = {
+                  twitter: tmp$9,
+                  twitterTimeline: tmp$11,
+                  github: tmp$14,
+                  gitHubUser: tmp$16
                 };
               } else {
                 throw Graphql_error;
               }
-              tmp$4 = /* Some */[tmp$5];
+              tmp$4 = {
+                name: tmp$5,
+                presentations: tmp$7,
+                profile: tmp$8
+              };
+            } else {
+              throw Graphql_error;
             }
             tmp$3 = {
               user: tmp$4
@@ -612,16 +570,12 @@ var FindOtherVideosQuery = /* module */[
   /* MT_Ret */MT_Ret
 ];
 
-function viewCountOfPresentation(maybePresentation) {
-  if (maybePresentation) {
-    var match = maybePresentation[0].youtubeVideo;
-    if (match) {
-      var match$1 = match[0].statistics;
-      if (match$1) {
-        return match$1[0].viewCount;
-      } else {
-        return 0;
-      }
+function viewCountOfPresentation(presentation) {
+  var match = presentation.youtubeVideo;
+  if (match) {
+    var match$1 = match[0].statistics;
+    if (match$1) {
+      return match$1[0].viewCount;
     } else {
       return 0;
     }
@@ -630,72 +584,65 @@ function viewCountOfPresentation(maybePresentation) {
   }
 }
 
-function renderPresentation(maybePresentation) {
-  if (maybePresentation) {
-    var presentation = maybePresentation[0];
-    var match = presentation.draft;
-    var title = match ? $$default("No title", match[0].title) : "No draft -- impossible!";
-    var match$1 = presentation.event;
-    var eventName = match$1 ? $$default("No event name", match$1[0].name) : "No event -- impossible!";
-    var match$2 = presentation.video_url;
-    var tmp;
-    if (match$2) {
-      var match$3 = presentation.youtubeVideo;
-      var stats;
-      if (match$3) {
-        var match$4 = match$3[0].statistics;
-        if (match$4) {
-          var stats$1 = match$4[0];
-          stats = /* Some */[/* tuple */[
-              stats$1.viewCount,
-              stats$1.likeCount
-            ]];
-        } else {
-          stats = /* None */0;
-        }
+function renderPresentation(presentation) {
+  var title = $$default("No title", presentation.draft.title);
+  var eventName = $$default("No event name", presentation.event.name);
+  var match = presentation.video_url;
+  var tmp;
+  if (match) {
+    var match$1 = presentation.youtubeVideo;
+    var stats;
+    if (match$1) {
+      var match$2 = match$1[0].statistics;
+      if (match$2) {
+        var stats$1 = match$2[0];
+        stats = /* Some */[/* tuple */[
+            stats$1.viewCount,
+            stats$1.likeCount
+          ]];
       } else {
         stats = /* None */0;
       }
-      var tmp$1;
-      if (stats) {
-        var match$5 = stats[0];
-        tmp$1 = Curry._2(Printf.sprintf(/* Format */[
-                  /* String_literal */Block.__(11, [
-                      " - ",
-                      /* Int */Block.__(4, [
-                          /* Int_d */0,
-                          /* No_padding */0,
-                          /* No_precision */0,
-                          /* String_literal */Block.__(11, [
-                              " views / ",
-                              /* Int */Block.__(4, [
-                                  /* Int_d */0,
-                                  /* No_padding */0,
-                                  /* No_precision */0,
-                                  /* String_literal */Block.__(11, [
-                                      " likes",
-                                      /* End_of_format */0
-                                    ])
-                                ])
-                            ])
-                        ])
-                    ]),
-                  " - %d views / %d likes"
-                ]), match$5[0], match$5[1]);
-      } else {
-        tmp$1 = "";
-      }
-      tmp = React.createElement("span", undefined, React.createElement("a", {
-                href: match$2[0],
-                target: "_blank"
-              }, Utils$ReactTemplate.s(title)), React.createElement("span", undefined, Utils$ReactTemplate.s(tmp$1)));
     } else {
-      tmp = Utils$ReactTemplate.s(title);
+      stats = /* None */0;
     }
-    return React.createElement("li", undefined, Utils$ReactTemplate.s(eventName + ": "), tmp);
+    var tmp$1;
+    if (stats) {
+      var match$3 = stats[0];
+      tmp$1 = Curry._2(Printf.sprintf(/* Format */[
+                /* String_literal */Block.__(11, [
+                    " - ",
+                    /* Int */Block.__(4, [
+                        /* Int_d */0,
+                        /* No_padding */0,
+                        /* No_precision */0,
+                        /* String_literal */Block.__(11, [
+                            " views / ",
+                            /* Int */Block.__(4, [
+                                /* Int_d */0,
+                                /* No_padding */0,
+                                /* No_precision */0,
+                                /* String_literal */Block.__(11, [
+                                    " likes",
+                                    /* End_of_format */0
+                                  ])
+                              ])
+                          ])
+                      ])
+                  ]),
+                " - %d views / %d likes"
+              ]), match$3[0], match$3[1]);
+    } else {
+      tmp$1 = "";
+    }
+    tmp = React.createElement("span", undefined, React.createElement("a", {
+              href: match[0],
+              target: "_blank"
+            }, Utils$ReactTemplate.s(title)), React.createElement("span", undefined, Utils$ReactTemplate.s(tmp$1)));
   } else {
-    return null;
+    tmp = Utils$ReactTemplate.s(title);
   }
+  return React.createElement("li", undefined, Utils$ReactTemplate.s(eventName + ": "), tmp);
 }
 
 var component = ReasonReact.reducerComponent("Core");
@@ -715,67 +662,59 @@ function make$1(videoId, _) {
                           if (match) {
                             var match$1 = match[0].presentation;
                             if (match$1) {
-                              var match$2 = match$1[0].user;
-                              if (match$2) {
-                                var user = match$2[0];
-                                var match$3 = user.presentations;
-                                var match$4 = user.profile;
-                                var gitHubUser = match$4 ? match$4[0].gitHubUser : /* None */0;
-                                var tmp;
-                                if (gitHubUser) {
-                                  var githubUser = gitHubUser[0];
-                                  var match$5 = githubUser.repositories.nodes;
-                                  tmp = React.createElement("div", undefined, React.createElement("hr", undefined), React.createElement("h3", undefined, Utils$ReactTemplate.s("Github: " + (githubUser.login + ("(" + (githubUser.email + ") - most recently active repositories:"))))), match$5 ? React.createElement("ul", undefined, $$Array.map((function (optionalNode) {
-                                                    var tmp;
-                                                    if (optionalNode) {
-                                                      var node = optionalNode[0];
-                                                      var match = node.description;
-                                                      tmp = React.createElement("span", undefined, React.createElement("a", {
-                                                                href: node.url,
-                                                                target: "_blank"
-                                                              }, Utils$ReactTemplate.s(node.name)), match ? Utils$ReactTemplate.s(" - " + match[0]) : Utils$ReactTemplate.s(""));
-                                                    } else {
-                                                      tmp = null;
-                                                    }
-                                                    return React.createElement("li", undefined, tmp);
-                                                  }), match$5[0])) : null);
-                                } else {
-                                  tmp = null;
-                                }
-                                var match$6 = user.profile;
-                                var twitterTimeline = match$6 ? match$6[0].twitterTimeline : /* None */0;
-                                var match$7 = user.profile;
-                                var screenName = match$7 ? match$7[0].twitter : /* None */0;
-                                return React.createElement("div", {
-                                            style: {
-                                              minWidth: "600px"
-                                            }
-                                          }, React.createElement("h1", undefined, Utils$ReactTemplate.s("Talks by " + $$default("No name", user.name))), match$3 ? React.createElement("ul", undefined, $$Array.map(renderPresentation, $$Array.of_list(List.sort((function (a, b) {
-                                                                return viewCountOfPresentation(b) - viewCountOfPresentation(a) | 0;
-                                                              }), $$Array.to_list(match$3[0]))))) : React.createElement("div", undefined, Utils$ReactTemplate.s("No other talks")), tmp, twitterTimeline ? React.createElement("div", undefined, React.createElement("hr", undefined), React.createElement("h3", undefined, Utils$ReactTemplate.s("Twitter: 5 most recent tweets")), React.createElement("ul", undefined, $$Array.map((function (tweet) {
-                                                            return React.createElement("li", undefined, React.createElement("span", undefined, React.createElement("a", {
-                                                                                href: Curry._2(Printf.sprintf(/* Format */[
-                                                                                          /* String_literal */Block.__(11, [
-                                                                                              "https://twitter.com/",
-                                                                                              /* String */Block.__(2, [
-                                                                                                  /* No_padding */0,
-                                                                                                  /* String_literal */Block.__(11, [
-                                                                                                      "/status/",
-                                                                                                      /* String */Block.__(2, [
-                                                                                                          /* No_padding */0,
-                                                                                                          /* End_of_format */0
-                                                                                                        ])
-                                                                                                    ])
-                                                                                                ])
-                                                                                            ]),
-                                                                                          "https://twitter.com/%s/status/%s"
-                                                                                        ]), $$default("", screenName), tweet.idStr),
-                                                                                target: "_blank"
-                                                                              }, Utils$ReactTemplate.s(tweet.createdAt)), Utils$ReactTemplate.s(tweet.text)));
-                                                          }), twitterTimeline[0].tweets))) : null);
+                              var user = match$1[0].user;
+                              var presentations = user.presentations;
+                              var gitHubUser = user.profile.gitHubUser;
+                              var tmp;
+                              if (gitHubUser) {
+                                var githubUser = gitHubUser[0];
+                                var match$2 = githubUser.repositories.nodes;
+                                tmp = React.createElement("div", undefined, React.createElement("hr", undefined), React.createElement("h3", undefined, Utils$ReactTemplate.s("Github: " + (githubUser.login + ("(" + (githubUser.email + ") - most recently active repositories:"))))), match$2 ? React.createElement("ul", undefined, $$Array.map((function (optionalNode) {
+                                                  var tmp;
+                                                  if (optionalNode) {
+                                                    var node = optionalNode[0];
+                                                    var match = node.description;
+                                                    tmp = React.createElement("span", undefined, React.createElement("a", {
+                                                              href: node.url,
+                                                              target: "_blank"
+                                                            }, Utils$ReactTemplate.s(node.name)), match ? Utils$ReactTemplate.s(" - " + match[0]) : Utils$ReactTemplate.s(""));
+                                                  } else {
+                                                    tmp = null;
+                                                  }
+                                                  return React.createElement("li", undefined, tmp);
+                                                }), match$2[0])) : null);
                               } else {
-                                return React.createElement("div", undefined, Utils$ReactTemplate.s("Presentation found, but no user associated"));
+                                tmp = null;
                               }
+                              var twitterTimeline = user.profile.twitterTimeline;
+                              var screenName = user.profile.twitter;
+                              return React.createElement("div", {
+                                          style: {
+                                            minWidth: "600px"
+                                          }
+                                        }, React.createElement("h1", undefined, Utils$ReactTemplate.s("Talks by " + $$default("No name", user.name))), React.createElement("ul", undefined, $$Array.map(renderPresentation, $$Array.of_list(List.sort((function (a, b) {
+                                                            return viewCountOfPresentation(b) - viewCountOfPresentation(a) | 0;
+                                                          }), $$Array.to_list(presentations))))), tmp, twitterTimeline ? React.createElement("div", undefined, React.createElement("hr", undefined), React.createElement("h3", undefined, Utils$ReactTemplate.s("Twitter: 5 most recent tweets")), React.createElement("ul", undefined, $$Array.map((function (tweet) {
+                                                          return React.createElement("li", undefined, React.createElement("span", undefined, React.createElement("a", {
+                                                                              href: Curry._2(Printf.sprintf(/* Format */[
+                                                                                        /* String_literal */Block.__(11, [
+                                                                                            "https://twitter.com/",
+                                                                                            /* String */Block.__(2, [
+                                                                                                /* No_padding */0,
+                                                                                                /* String_literal */Block.__(11, [
+                                                                                                    "/status/",
+                                                                                                    /* String */Block.__(2, [
+                                                                                                        /* No_padding */0,
+                                                                                                        /* End_of_format */0
+                                                                                                      ])
+                                                                                                  ])
+                                                                                              ])
+                                                                                          ]),
+                                                                                        "https://twitter.com/%s/status/%s"
+                                                                                      ]), $$default("", screenName), tweet.idStr),
+                                                                              target: "_blank"
+                                                                            }, Utils$ReactTemplate.s(tweet.createdAt)), Utils$ReactTemplate.s(tweet.text)));
+                                                        }), twitterTimeline[0].tweets))) : null);
                             } else {
                               return React.createElement("div", undefined, Utils$ReactTemplate.s("No other talks found from this video"));
                             }

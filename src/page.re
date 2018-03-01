@@ -32,7 +32,7 @@ let make = (~forcedVideoId=?, _children) => {
         "appId": Config.appId,
         "oauthFinishPath": "/src/popup.html"
       }),
-    videoId: forcedVideoId,
+    videoId: None,
     failed: false,
     currentUrl: None,
     isGithubLoggedIn: false,
@@ -60,14 +60,13 @@ let make = (~forcedVideoId=?, _children) => {
     | Fail => ReasonReact.Update({...state, failed: true})
     },
   didMount: self => {
-    switch self.state.videoId {
-    | None =>
-      /* If we don't have a forced video id, try to find it from the currently active tab */
+    try (
       Chrome.Tabs.getActive(activeTab => {
         Js.log2("Active tab:", activeTab);
         self.send(SetUrl(Js.Nullable.to_opt(activeTab##url)));
       })
-    | Some(_) => ()
+    ) {
+    | _ => self.send(SetUrl(forcedVideoId))
     };
     OneGraphAuth.isLoggedIn(self.state.twitterAuth)
     |> Js.Promise.then_((isLoggedIn: Js.boolean) => {
