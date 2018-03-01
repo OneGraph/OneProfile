@@ -47,3 +47,10 @@ Back in https://www.onegraph.com/dashboard just add
 to your app's CORS origins, and you should be good to go.
 
 ![Adding extension origin to OneGraph app](imgs/onedash.png)
+
+## Examples
+
+![Example results](imgs/example_1.png)
+![Example results](imgs/example_2.png)
+![Example results](imgs/example_3.png)
+![Example results](imgs/example_4.png)
