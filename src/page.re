@@ -66,7 +66,11 @@ let make = (~forcedVideoId=?, _children) => {
         self.send(SetUrl(Js.Nullable.to_opt(activeTab##url)));
       })
     ) {
-    | _ => self.send(SetUrl(forcedVideoId))
+    | _ =>
+      switch forcedVideoId {
+      | None => ()
+      | Some(videoId) => self.send(SetVideoId(videoId))
+      }
     };
     OneGraphAuth.isLoggedIn(self.state.twitterAuth)
     |> Js.Promise.then_((isLoggedIn: Js.boolean) => {

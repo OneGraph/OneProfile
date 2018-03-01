@@ -25,7 +25,10 @@ function make(forcedVideoId, _) {
               }));
       }
       catch (exn){
-        Curry._1(self[/* send */4], /* SetUrl */Block.__(1, [forcedVideoId]));
+        if (forcedVideoId) {
+          Curry._1(self[/* send */4], /* SetVideoId */Block.__(0, [forcedVideoId[0]]));
+        }
+        
       }
       self[/* state */2][/* twitterAuth */1].isLoggedIn().then((function (isLoggedIn) {
               console.log("User is logged in to twitter: ", isLoggedIn);
