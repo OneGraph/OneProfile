@@ -29,13 +29,21 @@ get a icon added to your toolbar that'll work if you click it when
 you're at a Youtube video.
 
 Note that it'll initially not work because you need to set the allowed
-CORS origins for your app. Right-click on the icon, click "Inspect popup", and you'll see in the console an error like:
+CORS origins for your app. Right-click on the icon, click "Inspect popup",
+
+![Inspect popup](imgs/inspect_popup.png)
+
+ and you'll see in the console an error like:
 
 ```
 Failed to load https://serve.onegraph.com/dynamic?app_id=6c510423-45bc-4f46-af1b-54bc1676c10c: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'chrome-extension://jdaipnhimjnhdnionekkakggdbdmpaba' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
 popup.html:1 
 ```
+![Example CORS error in chrome](imgs/oneprofile_error.png)
+
 
 Back in https://www.onegraph.com/dashboard just add
 `chrome-extension://<randomly-generated-id-from-above-console-error>`
 to your app's CORS origins, and you should be good to go.
+
+![Adding extension origin to OneGraph app](imgs/onedash.png)
