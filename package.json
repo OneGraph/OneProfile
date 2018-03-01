@@ -1,0 +1,35 @@
+{
+  "name": "OneProfile",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack -w"
+  },
+  "keywords": ["BuckleScript"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.1.1",
+    "apollo-client-preset": "^1.0.3",
+    "apollo-link": "1.0.7",
+    "apollo-link-context": "1.0.3",
+    "apollo-link-error": "1.0.3",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.5.0",
+    "onegraph-auth": "^0.1.27",
+    "react": "^15.4.2",
+    "react-apollo": "2.1.0-beta.2",
+    "react-dom": "^15.4.2",
+    "reason-apollo": "^0.6.17",
+    "reason-react": ">=0.3.0"
+  },
+  "devDependencies": {
+    "bs-platform": "^2.1.0",
+    "bs-webapi": "0.8.1",
+    "graphql_ppx": "^0.2.1",
+    "webpack": "^3.8.1"
+  }
+}

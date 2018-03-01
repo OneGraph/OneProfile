@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+
+  "name": "YouAndEventil",
+  "description": "See other talks by the current speaker",
+  "version": "0.1",
+  "browser_action": {
+    "default_popup": "src/popup.html"
+  },
+  "permissions": ["tabs", "notifications", "https://www.youtube.com/"]
+}
