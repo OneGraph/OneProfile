@@ -16,13 +16,13 @@ function logout() {
 
 var httpLink = ApolloLinks.createHttpLink(Curry._1(Printf.sprintf(/* Format */[
               /* String_literal */Block.__(11, [
-                  "https://serve.onegraph.com/dynamic?app_id=",
+                  "http://serve.onegraph.io:8082/dynamic?app_id=",
                   /* String */Block.__(2, [
                       /* No_padding */0,
                       /* End_of_format */0
                     ])
                 ]),
-              "https://serve.onegraph.com/dynamic?app_id=%s"
+              "http://serve.onegraph.io:8082/dynamic?app_id=%s"
             ]), Config$ReactTemplate.appId), /* None */0, /* None */0, /* None */0, /* Some */["include"], /* None */0, /* () */0);
 
 function contextHandler() {

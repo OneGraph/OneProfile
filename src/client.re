@@ -17,7 +17,7 @@ let httpLink =
   createHttpLink(
     ~uri=
       Printf.sprintf(
-        "https://serve.onegraph.com/dynamic?app_id=%s",
+        "http://serve.onegraph.io:8082/dynamic?app_id=%s",
         Config.appId
       ),
     ~credentials="include",

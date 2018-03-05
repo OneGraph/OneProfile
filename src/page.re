@@ -21,17 +21,27 @@ let make = (~forcedVideoId=?, _children) => {
   ...component,
   initialState: () => {
     githubAuth:
-      OneGraphAuth.make({
-        "service": "github",
-        "appId": Config.appId,
-        "oauthFinishPath": "/src/popup.html"
-      }),
+      OneGraphAuth.(
+        makeConfig(
+          ~service="github",
+          ~appId=Config.appId,
+          ~oneGraphOrigin="http://serve.onegraph.io:8082",
+          ~oauthFinishPath="/src/popup.html",
+          ()
+        )
+        |> make
+      ),
     twitterAuth:
-      OneGraphAuth.make({
-        "service": "twitter",
-        "appId": Config.appId,
-        "oauthFinishPath": "/src/popup.html"
-      }),
+      OneGraphAuth.(
+        makeConfig(
+          ~service="twitter",
+          ~appId=Config.appId,
+          ~oneGraphOrigin="http://serve.onegraph.io:8082",
+          ~oauthFinishPath="/src/popup.html",
+          ()
+        )
+        |> make
+      ),
     videoId: None,
     failed: false,
     currentUrl: None,

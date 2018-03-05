@@ -1,15 +1,20 @@
 type t;
 
-[@bs.new] [@bs.module "onegraph-auth"]
-external make :
-  {
-    .
-    "appId": string,
-    "service": string,
-    "oauthFinishPath": string
-  } =>
-  t =
-  "default";
+type config;
+
+[@bs.obj]
+external makeConfig :
+  (
+    ~appId: string,
+    ~service: string,
+    ~oauthFinishPath: string=?,
+    ~oneGraphOrigin: string=?,
+    unit
+  ) =>
+  config =
+  "";
+
+[@bs.new] [@bs.module "onegraph-auth"] external make : config => t = "default";
 
 [@bs.send] external login : t => Js.Promise.t('a) = "";
 

@@ -84,14 +84,16 @@ function make(forcedVideoId, _) {
   newrecord[/* initialState */10] = (function () {
       return /* record */[
               /* githubAuth */new OnegraphAuth.default({
-                    service: "github",
                     appId: Config$ReactTemplate.appId,
-                    oauthFinishPath: "/src/popup.html"
+                    service: "github",
+                    oauthFinishPath: "/src/popup.html",
+                    oneGraphOrigin: "http://serve.onegraph.io:8082"
                   }),
               /* twitterAuth */new OnegraphAuth.default({
-                    service: "twitter",
                     appId: Config$ReactTemplate.appId,
-                    oauthFinishPath: "/src/popup.html"
+                    service: "twitter",
+                    oauthFinishPath: "/src/popup.html",
+                    oneGraphOrigin: "http://serve.onegraph.io:8082"
                   }),
               /* videoId : None */0,
               /* currentUrl : None */0,
