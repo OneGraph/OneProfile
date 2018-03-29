@@ -14,7 +14,7 @@ npm start
 # in another tab
 npm run webpack
 # in *another* tab if you don't want the chrome extension version
-npx serve
+npm run serve
 ```
 
 Visit the npx url and it'll show you the related talks to the id set
